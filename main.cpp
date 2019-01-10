@@ -24,6 +24,11 @@ class BeoportPC2Interface: public PC2Interface {
             this->pc2->mixer->adjust_volume(-1);
             notifier.notify_volume(this->pc2->mixer->state.volume);
         }
+        else if (keycode == 0x0c) {
+            this->pc2->mixer->transmit_locally(false);
+            this->pc2->mixer->transmit_from_ml(false);
+            this->pc2->mixer->speaker_power(false);
+        }
     }
 };
 
