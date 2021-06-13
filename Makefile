@@ -14,8 +14,11 @@ all:    $(PROG)
 libpc2/libpc2.a:
 	$(MAKE) -C libpc2/
 
-pc2d:   $(OBJS) libpc2/libpc2.a
-	$(CXX) $(LDFLAGS) -o $(PROG) $(OBJS) libpc2/libpc2.a $(LDLIBS)
+pc2d: libpc2/libpc2.a $(OBJS) 
+	$(CXX) $(LDFLAGS) -o $(PROG) $(OBJS) $< $(LDLIBS)
+
+install-deps:
+	apt install libboost-log-dev libboost-iostreams-dev libboost-thread-dev libboost-system-dev librabbitmq-dev libusb-1.0-0-dev libnotify-dev
 
 clean:
 	$(RM) $(OBJS)
