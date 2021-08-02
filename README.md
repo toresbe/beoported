@@ -7,7 +7,7 @@ Utility to use the Bang &amp; Olufsen Beoport PC2 on a Linux desktop
 
 To pull in the newest version of libpc2, run
 
-`git submodule update --recursive`
+`git submodule init && git submodule update --recursive`
 
 Then simply
 
